@@ -118,12 +118,13 @@
       <section class="contact section" id="contact">
         <div class="shell contact-grid">
           <div class="contact-copy"><p class="section-code">05 / START A CONVERSATION</p><h2>Have something useful to build?</h2><p>Tell us what is not working, what you want to improve and where you want the business to go. We will help shape the right next step.</p><a href="mailto:davidaukpong@gmail.com">davidaukpong@gmail.com <span>↗</span></a></div>
-          <form class="contact-form" action="mailto:davidaukpong@gmail.com" method="post" enctype="text/plain">
+          <form class="contact-form" action="/api/contact" method="post">
             <label><span>Your name</span><input type="text" name="name" autocomplete="name" required /></label>
             <label><span>Work email</span><input type="email" name="email" autocomplete="email" required /></label>
             <label><span>Company <i>(optional)</i></span><input type="text" name="company" autocomplete="organization" /></label>
             <label><span>What do you need?</span><select name="service" required><option value="" selected disabled>Select a service</option><option>Website</option><option>Software or app</option><option>Automation</option><option>Digital support</option><option>Not sure yet</option></select></label>
             <label class="full"><span>Tell us about the project</span><textarea name="project" rows="4" required></textarea></label>
+            <p class="form-status" data-form-status role="status" aria-live="polite"></p>
             <button class="button button-light" type="submit">Send your enquiry <i aria-hidden="true">↗</i></button>
           </form>
         </div>

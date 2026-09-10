@@ -2,6 +2,7 @@
   "name": "dauvex-website",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "build": "vite build",
@@ -9,5 +10,8 @@
   },
   "devDependencies": {
     "vite": "^7.1.5"
+  },
+  "dependencies": {
+    "resend": "^6.27.0"
   }
 }

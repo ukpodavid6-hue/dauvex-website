@@ -18,3 +18,30 @@ mobileMenu.querySelectorAll('a').forEach((link) => link.addEventListener('click'
 }));
 
 document.querySelector('[data-year]').textContent = new Date().getFullYear();
+
+const contactForm = document.querySelector('.contact-form');
+const formStatus = contactForm.querySelector('[data-form-status]');
+
+contactForm.addEventListener('submit', async (event) => {
+  event.preventDefault();
+  formStatus.textContent = 'Sending your enquiry...';
+  formStatus.classList.remove('is-error');
+
+  try {
+    const response = await fetch(contactForm.action, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(Object.fromEntries(new FormData(contactForm))),
+    });
+    const result = await response.json();
+
+    if (!response.ok) {
+      throw new Error(result.error || 'We could not send your enquiry.');
+    }
+
+    window.location.assign('/thank-you');
+  } catch (error) {
+    formStatus.textContent = error.message;
+    formStatus.classList.add('is-error');
+  }
+});
